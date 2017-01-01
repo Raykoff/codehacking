@@ -8,8 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-<form action="usuarios/{{$user->id}}/edit}" method="get"></form>
-<input type="text" name="nombre">
-
+    <div class="container">
+        <h1>{{$user->name}}</h1>
+    </div>
 </body>
 </html>
