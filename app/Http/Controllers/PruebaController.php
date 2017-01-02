@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use Illuminate\Http\Request;
 use App\User;
+use Symfony\Component\DomCrawler\Form;
 
 class PruebaController extends Controller
 {
@@ -12,10 +14,21 @@ class PruebaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('prueba');
+    }
+
     public function index()
     {
         //
-        $users = User::all();
+        $users = User::paginate(12);
+
+
+        if($users->isEmpty()){
+//            return "No hay usuarios";
+        }
 
         return view('admin.users.index', ['users' => $users]);
 
@@ -67,8 +80,13 @@ class PruebaController extends Controller
     {
         //
         $user = User::find($id);
+        $roles = Role::all();
 
-        return view('admin.users.edit', ['user' => $user]);
+        return view('admin.users.edit', [
+            'user' => $user,
+            'roles' => $roles,
+
+        ]);
     }
 
     /**
@@ -81,6 +99,14 @@ class PruebaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = User::find($id);
+        $datos = $request->all();
+
+        $user->update($datos);
+
+        return redirect('/usuarios');
+
+
     }
 
     /**
@@ -92,5 +118,10 @@ class PruebaController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::find($id);
+
+        $user->delete();
+
+        return redirect('/usuarios');
     }
 }

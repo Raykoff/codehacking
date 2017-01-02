@@ -12,6 +12,7 @@
 */
 
 use App\User;
+use Faker\Factory as Faker;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,3 +25,14 @@ Route::get('/home', 'HomeController@index');
 Route::resource('admin/users', 'AdminUsersController');
 
 Route::resource('/usuarios', 'PruebaController');
+
+Route::resource('/perfil', 'PerfilController');
+
+Route::get('/borrarUsuarios', function(){
+
+   $users = User::where('role_id', 2);
+
+    $users->delete();
+
+
+});
