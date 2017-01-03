@@ -42,4 +42,7 @@ Route::get('/borrarUsuarios', function(){
 
 Route::resource('/posts', 'PostController');
 
+//Route::get('/posts/edit', 'PostController@showPosts');
+//Route::get('/posts/edit', 'PostController');
+
 

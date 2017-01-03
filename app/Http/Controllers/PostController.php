@@ -126,4 +126,14 @@ class PostController extends Controller
 
         $post->delete();
     }
+
+    public function showPosts(){
+
+        $userId = Auth::user()->id;
+
+        $posts = PostUser::where('user_id', $userId);
+
+        return view('admin.posts.edit', ['posts' => $posts]);
+
+    }
 }
