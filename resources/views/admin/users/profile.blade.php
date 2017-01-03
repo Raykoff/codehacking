@@ -7,6 +7,7 @@
         <h3><b>E-mail:</b> {{$user->email}}</h3>
         <h3><b>Privilegio: </b>{{$user->role->name}}</h3>
         <h3><b>Creado: </b>{{$user->created_at}}</h3>
+        <h3><b>nº de posts: </b>{{$user->posts->count()}}</h3>
         {{--<a href="{{route('usuarios.edit', $user->id)}}">Edit</a>--}}
     </div>
 @endsection

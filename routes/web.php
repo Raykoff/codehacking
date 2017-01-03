@@ -13,14 +13,17 @@
 
 use App\User;
 use Faker\Factory as Faker;
+use App\Post;
+use Illuminate\Support\Facades\File;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::resource('admin/users', 'AdminUsersController');
 
@@ -36,3 +39,7 @@ Route::get('/borrarUsuarios', function(){
 
 
 });
+
+Route::resource('/posts', 'PostController');
+
+

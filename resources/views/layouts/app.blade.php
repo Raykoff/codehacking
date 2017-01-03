@@ -56,6 +56,23 @@
                             @if(Auth::user()->role->name == 'admin')
                             <li><a href="{{ url('/usuarios') }}">Usuarios</a></li>
                             @endif
+                            <li class="dropdown">
+
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Posts <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{url('/posts')}}">Mis posts</a>
+                                        <a href="{{route('posts.create')}}">Nuevo post</a>
+                                    </li>
+
+                                </ul>
+
+
+
+
+                            </li>
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
