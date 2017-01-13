@@ -14,4 +14,6 @@ class PostUser extends Model
         'user_id',
         'post_id',
     ];
+
+
 }

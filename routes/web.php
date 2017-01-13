@@ -39,6 +39,7 @@ Route::get('/borrarUsuarios', function(){
 
 
 });
+Route::get('/post/view', 'PostController@showPosts');
 
 Route::resource('/posts', 'PostController');
 

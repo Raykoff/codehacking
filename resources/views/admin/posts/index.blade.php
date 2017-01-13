@@ -18,6 +18,12 @@
                     <img src="/uploads/images/{{$post->path}}" alt="">
                 </div>
                 <p><b>{{$post->text}}</b></p>
+                <form action="{{route('posts.destroy', $post->id)}}" method="POST">
+                    {{csrf_field()}}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="Borrar" class="btn btn-danger">
+
+                </form>
             @endforeach
         </ul>
     </div>

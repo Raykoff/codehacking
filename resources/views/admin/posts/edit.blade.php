@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <p>{{$posts}}</p>
+    <p></p>
 
 @endsection

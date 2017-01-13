@@ -120,20 +120,31 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-        $post = Post::findOrFail($id);
+        $post_Post = Post::findOrFail($id);
+        $post_user = PostUser::where('post_id', $id)->get();
 
-        unlink(public_path('uploads/images/') . $post->path );
+        unlink(public_path('uploads/images/') . $post_Post->path );
 
-        $post->delete();
+        foreach ($post_user as $post){
+            $post->delete();
+        }
+
+       $post_Post->delete();
+
+
+        return redirect('/posts');
     }
 
     public function showPosts(){
 
         $userId = Auth::user()->id;
 
-        $posts = PostUser::where('user_id', $userId);
+        $posts = PostUser::where('user_id', $userId)->get();
+//        $posts = PostUser::first();
 
-        return view('admin.posts.edit', ['posts' => $posts]);
+        dd($posts);
+
+        return view('admin.posts.edit', compact('posts'));
 
     }
 }
