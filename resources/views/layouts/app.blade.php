@@ -81,7 +81,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{route('perfil.show', Auth::user()->id)}}">Ver perfil</a>
+                                        <a href="{{route('perfil.index')}}">Ver perfil</a>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

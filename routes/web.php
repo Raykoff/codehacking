@@ -15,6 +15,7 @@ use App\User;
 use Faker\Factory as Faker;
 use App\Post;
 use Illuminate\Support\Facades\File;
+use App\Avatar;
 
 
 //Route::get('/', function () {
@@ -31,15 +32,8 @@ Route::resource('/usuarios', 'PruebaController');
 
 Route::resource('/perfil', 'PerfilController');
 
-Route::get('/borrarUsuarios', function(){
-
-   $users = User::where('role_id', 2);
-
-    $users->delete();
-
-
-});
 Route::get('/post/view', 'PostController@showPosts');
+
 
 Route::resource('/posts', 'PostController');
 
